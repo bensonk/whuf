@@ -1,0 +1,15 @@
+<h2>Your Whuffie</h2>
+
+<p>
+  Your current score is <%= @score %>.
+</p>
+
+<p>
+<% if @score < 10 %>
+  Go do something awesome for someone!
+<% else %>
+  Nice!
+<% end %>
+</p>
+
+<p>Did someone do something nice for you? <%= link_to "Record it", new_event_url %>!</p>

@@ -1,0 +1,11 @@
+<h2>Thank Someone</h2>
+
+<%= form_for @event do |f| %>
+  <div>
+    <%= f.label :to_user_id, 'Who did something awesome for you?' %><br/>
+    <%= f.text_field :to_user_id %>
+  </div>
+  <div>
+    <%= submit_tag "Thanks!" %>
+  </div>
+<% end %>

@@ -4,6 +4,13 @@ Whuf::Application.routes.draw do
 
   # Omniauth
   match '/auth/:provider/callback', :to => 'sessions#create'
+  match '/sessions/logout', :to => 'sessions#destroy', :as => :logout
+
+  # Create events and all that jazz
+  resources :events
+
+  # Home
+  root :to => "home#index"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -49,9 +56,6 @@ Whuf::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => "welcome#index"
 
   # See how all your routes lay out with "rake routes"
 

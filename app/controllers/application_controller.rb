@@ -23,6 +23,14 @@ class ApplicationController < ActionController::Base
     session[:user_id] = nil
   end
 
+  def must_be_user
+    unless current_user
+      flash[:notice] = 'You must be signed in to do that!'
+      redirect_to root_url
+      return false
+    end
+  end
+
   def must_be_admin
     unless current_user and current_user.admin?
       if current_user
